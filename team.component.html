@@ -1,34 +1,53 @@
 
-<div class="TEAM_COMPONENT">
-<div class="LEFT">
-  <ul class="heroes" >
-  <li class ="badge" type=none *ngFor="let ar of maindata, index as idd" (click)="onselect(idd)" >
-    <input type=checkbox (click)="oncheck(idd)">{{ar.Tname}}
-
+<nav class="navbar navbar-inverse navbar-fixed-bottom">
+  <div class="container-fluid">
+    <div class="nav navbar-nav">
+      <button (click)="delmul()" class="btn btn-danger navbar-btn">+</button>
+      <button (click)="delmul()" class="btn btn-danger navbar-btn">-</button>
+    </div></div>
+    </nav>
+  <div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-4 col-md-6 sidenav text-center">
+      <!--<div class="row content">-->
+        <!--<div class="col-sm-4">-->
+          <h1>Team details</h1>
+  <ul class="heroes">
+  <li  type=none *ngFor="let ar of maindata, index as idd" (click)="onselect(idd)" >
+    <input type=checkbox (click)="oncheck(idd)">
+    <span class="text-center">{{ar.Tname}}</span>
   </li>
   </ul>
-<button (click)="delmul()">delete selected items</button>
+
 <br>
 <br>
+    <!--</div>-->
+    <!--<div class="col-sm-4">-->
 <h1>Enter new team</h1> 
-<input #tid placeholder="enter team id">
-  <input #tna placeholder="enter team name">
-  <input #na placeholder="enter name">
- <input #em placeholder="enter team emailid">
+<ul>
+<li type=none><input #tid placeholder="team id">
+  <li type=none><input #tna placeholder="team name">
+  <li type=none><input #na placeholder="name">
+ <li type=none class="glyphicon glyphicon-user"><input #em  placeholder="Email">
+ </ul>
  <button (click)="onadd(tid.value,tna.value,na.value,em.value);tid.value='';tna.value='';na.value='';em.value=''">Add new Team</button> 
  <br>
  <h1>Enter new members</h1>
- <input #mtid placeholder="enter team id">
-  <input #mtna placeholder="enter team name">
-  <input #mna placeholder="enter member name">
- <input #mem placeholder="enter member emailid">
- <input #min placeholder="enter member id"> 
-<button (click)="onaddmem(mtid.value,mtna.value,mna.value,mem.value,min.value);mtid.value='';mtna.value='';mem.value='';min.value=''">Add new members</button>
+ <ul>
+   <li type=none><input #mtid placeholder="team id"></li>
+  <li type=none><input #mtna placeholder="team name">
+  <li type=none><input #mna placeholder="member name">
+ <li type=none><input #mem placeholder="member email">
+ <li type=none class="glyphicon glyphicon-user"><input #min placeholder="enter member id"> 
+   </ul>
+<button type="button"class="btn btn-default active"(click)="onaddmem(mtid.value,mtna.value,mna.value,mem.value,min.value);mtid.value='';mtna.value='';mem.value='';min.value=''">Add new members</button>
  <br>
 
-  </div> 
+  <!--</div> -->
+      <!--</div>-->
+      </div>
 
-<div class="RIGHT">
+<div class="col-sm-4 col-md-6">
 
 <hero-detail  [gtdata]="MemberData" ></hero-detail>
 

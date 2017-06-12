@@ -1,10 +1,12 @@
-<div class="right">
-    <ul class="heroes">
-        <li class="badge2" *ngFor="let n of gtdata">
-            <p>teamid:{{n.Tid}}</p>
- <p>  name: {{n.name}} </p>
- <p>  email: {{n.email}}</p>
- <p>  id: {{n.id}} </p>
+<div class="ab ">
+    <h1 class="text-center">Member Details</h1>
+    <ul >
+        <li type=none *ngFor="let n of gtdata">
+            <a href="#"><p><span class="text-uppercase">Teamid:</span>{{n.Tid}}</p>
+ <p> <span class="text-uppercase">Name:</span> {{n.name}} </p>
+ <p> <span class="text-uppercase"> Email:</span> {{n.email}}</p>
+ <p><span class="text-uppercase">  Id:</span> {{n.id}} </p></a>
    </li>
    </ul>
    </div>
+   

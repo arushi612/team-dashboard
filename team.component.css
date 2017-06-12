@@ -1,3 +1,70 @@
+.heroes{
+    margin:0 0 0 0;
+    list-style-type:none;
+    padding:0;
+    width:10em;
+}
+
+.heroes {
+display: table;
+width: 100%;
+}
+.heroes > li
+{
+height: 5.0em;
+
+text-align:left;
+
+}
+
+
+.heroes > li > span{
+cursor:pointer;
+position:realtive;
+left:0;
+width: 100%;
+color:white;
+text-align:center;
+background-color:black;
+margin:2em;
+width: 30em;
+padding:.9em;
+height:3.0em;
+border-radius:4px;
+}
+
+
+
+.ab
+{
+     position:relative;
+    margin-top:40px;
+padding:20px;
+background-color:black;
+max-height:580px;
+overflow:scroll;
+width: 100%;
+} 
+.sidenav{
+    max-height:580px;
+overflow:scroll;
+     position:relative;
+    margin-top:40px;
+}
+li a
+{
+display:block;
+color:white;
+text-align:center;
+padding:14px 16px;
+text-decoration:none;
+
+}
+
+li a:hover:not(.active){
+   background-color:grey; 
+}
+
 
 
 .TEAM_COMPONENT
@@ -14,9 +81,9 @@ height: 100%;
 .LEFT
 {
 display:block;
-position: absolute;
+position: relative;
 top: 0px;
-float: left;
+/*float: left;*/
 width: 50%;
 height: 100%;
 
@@ -27,13 +94,37 @@ height: 100%;
 
   min-height: 100%;
   display:block;
-  position: absolute;
+position: absolute;
 top: 0;
 margin-left: 50%;
 width: 100%;
-float: right;
+/*float: right;*/
 height: 100%;
 
 
 
+}
+/*.aaa {*/
+    /*display: -webkit-box;*/
+    /*display: -ms-flexbox;*/
+    /*display: flex;*/
+    /*-webkit-box-orient: vertical;*/
+    /*-webkit-box-direction: normal;*/
+    /*-ms-flex-flow: column nowrap;*/
+    /*flex-flow: column nowrap;*/
+    /*min-height: 100vh;*/
+/*}*/
+
+
+
+.aa {
+    /*display: none;*/
+    position: fixed;
+    z-index: 0;
+    width: 100%;
+    padding: 10px 30px;
+    color: white;
+    background: black;
+    bottom: 0;
+    text-align: center;
 }

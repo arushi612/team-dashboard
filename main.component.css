@@ -1,0 +1,43 @@
+
+.side-nav
+{
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    background-color:blueviolet;
+    position:absolute;
+    left:0;
+    width:20%;
+    height:100%;
+}
+.side-nav{
+    float:0;
+}
+li a
+{
+display:block;
+color:blue;
+text-align:center;
+padding:14px 16px;
+text-decoration:none;
+
+}
+
+
+
+li a:hover:not(.active){
+   background-color:grey; 
+}
+.active{
+    background-color:yellow;
+
+
+
+}
+.ab
+{
+padding:20px;
+background-color:black;
+height:1500px;
+} 
+

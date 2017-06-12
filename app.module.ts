@@ -6,18 +6,34 @@ import { AppComponent } from './app.component';
 import{Team}from './team.component'
 import{MyData}from './mydata.directive';
 import {Hero} from './hero.component';
+import{Main} from './main.component';
+import {RouterModule} from '@angular/router';
+import{Default}from './default.component';
 @NgModule({
   declarations: [
     AppComponent,
     Team,
     MyData,
-    Hero
+    Hero,
+    Main,
+    Default
   
   ],
   imports: [
+        RouterModule.forRoot([
+      {
+        path:'*',
+        component:Default
+      },
+
+      {
+        path:'main',
+        component:Main
+      }
+        ]),
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

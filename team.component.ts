@@ -24,6 +24,7 @@ export class Team{
  
     oncheck(idd)
     {
+        this.onselect(idd);//self
         this.flag=1;       
         this.gtindex=idd;
     

@@ -1,0 +1,20 @@
+
+ 
+  <div class="right" >
+     <h1>MEMBER DETAILS</h1>
+  <ul class="abc">
+  <li *ngFor="let n of DATA">
+    <label>teamid:</label>{{n.Tid}}
+    <label>Team name:</label>{{n.Tname}}<br>
+      <label> name:</label>{{n.name}}<br>
+      <label>email :</label>{{n.email}}<br>
+      <label>id:</label>{{n.id}}
+      
+      </li>
+      </ul>
+      </div>
+
+
+<team-detail [maindata]="DATA" >
+
+

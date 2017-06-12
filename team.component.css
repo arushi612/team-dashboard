@@ -1,0 +1,39 @@
+
+
+.TEAM_COMPONENT
+{
+
+position: absolute;
+width: 100%;
+display:block;
+height: 100%;
+
+
+}
+
+.LEFT
+{
+display:block;
+position: absolute;
+top: 0px;
+float: left;
+width: 50%;
+height: 100%;
+
+}
+
+.RIGHT
+{
+
+  min-height: 100%;
+  display:block;
+  position: absolute;
+top: 0;
+margin-left: 50%;
+width: 100%;
+float: right;
+height: 100%;
+
+
+
+}

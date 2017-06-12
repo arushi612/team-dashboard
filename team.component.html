@@ -1,28 +1,38 @@
-<div class="abc">
-  <ul class="list">
-  <li type=none *ngFor="let ar of maindata, index as idd"  >
-   <button type="button" (click)="onselect(idd)"  >{{ar.Tname}}</button>
-   <br>
-   <br>
-   <br>
+
+<div class="TEAM_COMPONENT">
+<div class="LEFT">
+  <ul class="heroes" >
+  <li class ="badge" type=none *ngFor="let ar of maindata, index as idd" (click)="onselect(idd)" >
+    <input type=checkbox (click)="oncheck(idd)">{{ar.Tname}}
+
   </li>
-  <button (click)="onadd(tid.value,tna.value,na.value,em.value,in.value);tid.value='';tna.value='';na.value='';em.value='';in.value='' ">Add new Members</button>
+  </ul>
 <button (click)="delmul()">delete selected items</button>
 <br>
 <br>
-<input tid placeholder="enter team id">
+<h1>Enter new team</h1> 
+<input #tid placeholder="enter team id">
   <input #tna placeholder="enter team name">
   <input #na placeholder="enter name">
- <input #em placeholder="enter email">
- <input #in placeholder="enter id">
+ <input #em placeholder="enter team emailid">
+ <button (click)="onadd(tid.value,tna.value,na.value,em.value);tid.value='';tna.value='';na.value='';em.value=''">Add new Team</button> 
  <br>
+ <h1>Enter new members</h1>
+ <input #mtid placeholder="enter team id">
+  <input #mtna placeholder="enter team name">
+  <input #mna placeholder="enter member name">
+ <input #mem placeholder="enter member emailid">
+ <input #min placeholder="enter member id"> 
+<button (click)="onaddmem(mtid.value,mtna.value,mna.value,mem.value,min.value);mtid.value='';mtna.value='';mem.value='';min.value=''">Add new members</button>
  <br>
-  </ul>
+
   </div> 
 
+<div class="RIGHT">
 
- 
- 
 <hero-detail  [gtdata]="MemberData" ></hero-detail>
 
+</div>
 
+
+</div>

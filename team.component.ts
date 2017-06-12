@@ -1,89 +1,114 @@
-import{Component,Input} from '@angular/core';
+import{Component,Input } from '@angular/core';
 import{MemberDetail , TeamDetail} from './memberdetail';
-//import{TeamDetail}from './memberdetail';
 @Component({
     selector:'team-detail',
     templateUrl:'./team.component.html',
-    styleUrls:['./member.component.css']
+    styleUrls:['./team.component.css']
 })
 export class Team{
     LIST:MemberDetail[]=[];
     abc:TeamDetail[]=[];
-    value:boolean;
-    val:boolean;
-   
+    val:boolean=false;
+    flag=0;
+
     hero:MemberDetail[]=[];
-     //main:MemberDetail[]=[];
     gtindex  = "10";
     selectedIndexes:number[]=[];
+    ar:MemberDetail[]=[];
    
  @Input()
  maindata:TeamDetail[];
-
+ 
  @Input()
  MemberData:MemberDetail[];
-
-    onselect(idd)
+ 
+    oncheck(idd)
     {
+        this.flag=1;       
+        this.gtindex=idd;
+    
+        const current=this.selectedIndexes[idd];
 
-
- this.MemberData =  this.maindata[idd].main
-
-console.log(this.MemberData)
-
-
-
-    }
-    delmul()
-    {
-        
-        let newList=[];
-        for(var index in this.selectedIndexes)
-{
-    let element=this.LIST[index];
-    if(this.selectedIndexes[index]==0)
-    {
-        newList.push(element);
-    }
-
-}
-this.LIST=newList;
-this.resetCheckboxIndexes();
-    }
-    constructor()
-    {
-        this.LIST=
-        [
-            new MemberDetail(101,"teama","a","a@gmail.com",1),
-            
-            new MemberDetail(102,"teamb","b","b@gmail.com",2),
-            
-            new MemberDetail(103,"teamc","c","c@gmail.com",3),
-            
-            new MemberDetail(104,"teamd","d","d@gmail.com",4)
-        ];
-        this.resetCheckboxIndexes();
-    }
-    resetCheckboxIndexes()
-    {
-        this.selectedIndexes=[];
-        for(var i in this.LIST)
+        if(current==0)
         {
-            this.selectedIndexes[i]=0;
-        }
-    }
-    onadd(tid,tn,n,e,i)
-    {
-        this.value=true;
-        if(!tid&&!tn&&!n&&!e&&!i)
-        {
-            alert("all blank");
+            this.selectedIndexes[idd]=1;
         }
         else
         {
-            this.LIST.push(new MemberDetail(tid,tn,n,e,i));
-            this.value=false;
+            this.selectedIndexes[idd]=0;
+        }
+    }
+
+    onselect(idd)
+    {
+        if(this.flag==0)
+        {
+            this.MemberData =  this.maindata[idd].main    
+            this.ar=[];
+        }
+        else
+        {
+            this.flag=0;
+        }
             
+    }
+
+    delmul()
+    {
+        //console.log("selInd at beg delmul: "+this.selectedIndexes);
+        let newList=[];
+        for(var index in this.selectedIndexes)
+        {
+            let element=this.maindata[index];
+            if(this.selectedIndexes[index]==0)
+            {
+                newList.push(element);
+            }
+        }
+        this.maindata=newList;
+        this.resetCheckboxIndexes();
+    }
+
+    constructor()
+    {        
+    }
+
+   ngOnInit()
+   {
+       this.resetCheckboxIndexes();
+   }
+
+    resetCheckboxIndexes()
+    {
+        this.selectedIndexes=[];
+        for(var i in this.maindata)
+        {
+            this.selectedIndexes[i]=0;
+            console.log("in resetchkind: "+this.selectedIndexes[i]);
+        }
+    }
+
+    onaddmem(mtid,mtn,mna,mem,mid)
+    {    
+        if(!mtid&&!mtn&&!mna&&!mem&&!mid)
+        {
+            alert("please enter members");
+        }
+        else
+        {
+        this.ar.push(new MemberDetail(mtid,mtn,mna,mem,mid));
+        this.MemberData=this.MemberData.concat(this.ar);
+        }
+    }
+    
+    onadd(tid,tn,n,e,)
+    {
+        if(!tid&&!tn&&!n&&!e)
+        alert("please enter team details");
+        else
+        {
+        this.MemberData=this.MemberData.concat(this.ar);
+        this.maindata.push(new TeamDetail(tid,tn,n,e,this.ar));         
         this.resetCheckboxIndexes();
         }
     }

@@ -1,16 +1,24 @@
 
 <nav class="navbar navbar-inverse navbar-fixed-bottom">
   <div class="container-fluid">
-    <div class="nav navbar-nav">
-      <button (click)="delmul()" class="btn btn-danger navbar-btn">+</button>
-      <button (click)="delmul()" class="btn btn-danger navbar-btn">-</button>
-    </div></div>
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">yo</a>
+        </div>
+       
+        <button  class="btn btn-danger navbar-btn" (click)="delmul()">-</button>
+          <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">+</button>
+
+  <!-- Modal -->
+ 
+        
+        </div>
     </nav>
-  <div class="container-fluid">
+   
+      
+       <div class="container-fluid">
   <div class="row content">
     <div class="col-sm-4 col-md-6 sidenav text-center">
-      <!--<div class="row content">-->
-        <!--<div class="col-sm-4">-->
+     
           <h1>Team details</h1>
   <ul class="heroes">
   <li  type=none *ngFor="let ar of maindata, index as idd" (click)="onselect(idd)" >
@@ -19,11 +27,32 @@
   </li>
   </ul>
 
-<br>
-<br>
-    <!--</div>-->
-    <!--<div class="col-sm-4">-->
-<h1>Enter new team</h1> 
+ 
+ </div>
+
+<div class="col-sm-4 col-md-6">
+
+<hero-detail  [gtdata]="MemberData" ></hero-detail>
+
+</div>
+
+</div>
+</div>
+
+
+
+ <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+    
+          <h1>Enter new team</h1> 
 <ul>
 <li type=none><input #tid placeholder="team id">
   <li type=none><input #tna placeholder="team name">
@@ -43,15 +72,11 @@
 <button type="button"class="btn btn-default active"(click)="onaddmem(mtid.value,mtna.value,mna.value,mem.value,min.value);mtid.value='';mtna.value='';mem.value='';min.value=''">Add new members</button>
  <br>
 
-  <!--</div> -->
-      <!--</div>-->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
       </div>
-
-<div class="col-sm-4 col-md-6">
-
-<hero-detail  [gtdata]="MemberData" ></hero-detail>
-
-</div>
-
-
-</div>
+      
+    </div>
+  </div>

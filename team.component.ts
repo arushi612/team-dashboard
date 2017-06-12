@@ -10,7 +10,7 @@ export class Team{
     abc:TeamDetail[]=[];
     val:boolean=false;
     flag=0;
-
+addval:boolean=false;
     hero:MemberDetail[]=[];
     gtindex  = "10";
     selectedIndexes:number[]=[];
@@ -56,7 +56,7 @@ export class Team{
 
     delmul()
     {
-        //console.log("selInd at beg delmul: "+this.selectedIndexes);
+        console.log("del");
         let newList=[];
         for(var index in this.selectedIndexes)
         {
@@ -101,7 +101,7 @@ export class Team{
         this.MemberData=this.MemberData.concat(this.ar);
         }
     }
-    
+  
     onadd(tid,tn,n,e,)
     {
         if(!tid&&!tn&&!n&&!e)

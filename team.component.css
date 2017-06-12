@@ -41,12 +41,12 @@ border-radius:4px;
     margin-top:40px;
 padding:20px;
 background-color:black;
-max-height:580px;
+max-height:550px;
 overflow:scroll;
 width: 100%;
 } 
 .sidenav{
-    max-height:580px;
+    max-height:550px;
 overflow:scroll;
      position:relative;
     margin-top:40px;

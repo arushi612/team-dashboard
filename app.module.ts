@@ -9,6 +9,7 @@ import {Hero} from './hero.component';
 import{Main} from './main.component';
 import {RouterModule} from '@angular/router';
 import{Default}from './default.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,19 +17,26 @@ import{Default}from './default.component';
     MyData,
     Hero,
     Main,
-    Default
+    Default,
+  
   
   ],
   imports: [
         RouterModule.forRoot([
-      {
-        path:'*',
-        component:Default
-      },
-
+    
+{
+  path: '',
+  redirectTo: '/default',
+  pathMatch: 'full'
+},
       {
         path:'main',
         component:Main
+      },
+
+        {
+        path:'default',
+        component:Default
       }
         ]),
     BrowserModule,

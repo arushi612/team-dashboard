@@ -1,12 +1,80 @@
-<div class="ab ">
-    <h1 class="text-center" style="color:white">Member Details</h1>
-    <ul >
-        <li type=none *ngFor="let n of gtdata">
-            <a href="#"><p><span class="text-uppercase">Teamid:</span>{{n.Tid}}</p>
- <p> <span class="text-uppercase">Name:</span> {{n.name}} </p>
- <p> <span class="text-uppercase"> Email:</span> {{n.email}}</p>
- <p><span class="text-uppercase">  Id:</span> {{n.id}} </p></a>
+<div class="member-part-display"  >
+<nav class="navbar navbar-inverse navbar-fixed-top"style="padding:0px;margin-left:63.7%;top:50px;width:34.9%" >
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Member Details</a>
+    </div>
+  </div>
+</nav>
+
+
+  <div style="position:relative;top:60px;min-height:560px" >
+  
+  <ul>
+    <li type=none *ngFor="let n of gtdata,index as idd">
+      <a>
+        <div class="mem-without-hover">
+        <p>
+          <!--<span class="var-css-member text-uppercase">Teamid:</span> <span class="const-css-member-tid">{{n.Tid}}</span>-->
+          <button (click)="edit(idd)"type="button" style="float:right;border:none;background:none"class="btn btn-info btn-sm glyphicon glyphicon-pencil mem-pencil-pos" data-toggle="modal" data-target="#myModal"></button>
+        </p>
+     
+        <!--<p><span class="var-css-member text-uppercase">TeamName:</span> <span class="const-css-member">{{n.Tname}}</span></p>-->
+       <p class="w3-center"><img ng-src="C:\Users\c-aishwarya.dulwani\Desktop\pic.jpg" class="w3-circle" style="height:50px;width:50px" alt="Avatar"/> <span class="const-css-member">{{n.name}}</span></p>
+      
+        <p><span class="var-css-member text-uppercase">Email:</span> <span class="const-css-member">{{n.email}}</span></p>
+          <p><span class="var-css-member text-uppercase">Status:</span> <span class="const-css-member">{{n.status}}</span></p>
+
+      
+        <!--<p><span class="var-css-member text-uppercase">Member Id:</span> <span class="const-css-member-mid">{{n.id}}</span></p>-->
+        </div>
+      </a>
    </li>
-   </ul>
-   </div>
-   
+  </ul>
+  </div>
+</div>
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+      <p>Some text in the modal.</p>
+      <ul>
+        <li type=none><label>Team Id:</label><input #mtid [(ngModel)]="gtdata[__ind].Tid"></li>
+        <li  type=none><label>Team Name:</label></li>
+           <input #mtna [(ngModel)]="gtdata[__ind].Tname">
+           <!---->
+     
+  
+
+  <!--<select name="Team" id="selId">
+<option *ngFor="ar of tdata" value="ar.Tname">ar.Tname</option>
+</select>-->
+
+
+  
+<input [(ngModel)]="tdata[gt].Tname">
+<ul *ngFor="let ar of tdata, index as idd" (click)="pass(idd)" >
+    <li>{{ar.Tname}}</li>
+</ul>
+
+
+        <li  type=none><label>Member Name:</label><input #mna [(ngModel)]="gtdata[__ind].name"></li>
+        <li  type=none><label>Member Email:</label><input #mem [(ngModel)]="gtdata[__ind].email"></li>
+        <li   type=none class="glyphicon glyphicon-user"><label>Member Id:</label><input #min [(ngModel)]="gtdata[__ind].id"> </li>
+        <br>
+        <button (click)="update(mtid.value,mtna.value,mna.value,mem.value,min.value)">Update</button>
+      </ul>
+    </div>  
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>

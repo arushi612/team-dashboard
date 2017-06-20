@@ -12,7 +12,6 @@ this.el.nativeElement.style.backgroundColor=color;
 
     ngOnInit()
     {
-console.log("NgOnInit from directive" + this.accept)
 
     }
     

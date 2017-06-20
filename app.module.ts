@@ -17,28 +17,25 @@ import{Default}from './default.component';
     MyData,
     Hero,
     Main,
-    Default,
-  
-  
+    Default
   ],
   imports: [
-        RouterModule.forRoot([
+    RouterModule.forRoot([
+    {
+      path: '',
+      redirectTo: '/default',
+      pathMatch: 'full'
+    },
+    {
+      path:'main',
+      component:Main
+    },
+    {
+      path:'default',
+      component:Default
+    }
+    ]),
     
-{
-  path: '',
-  redirectTo: '/default',
-  pathMatch: 'full'
-},
-      {
-        path:'main',
-        component:Main
-      },
-
-        {
-        path:'default',
-        component:Default
-      }
-        ]),
     BrowserModule,
     FormsModule,
     HttpModule,

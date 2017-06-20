@@ -1,71 +1,99 @@
-.heroes{
+
+.heroes {
     margin:0 0 0 0;
     list-style-type:none;
     padding:0;
-    width:10em;
-}
-
-.heroes {
-display: table;
-width: 100%;
+/*display: table;*/
+/*min-width: 100%;*/
 }
 .heroes > li
 {
 height: 5.0em;
-
+/*min-width:300px;*/
+/*display:block;*/
 text-align:left;
+padding:.3em 0;
 
 }
+.team-part{
+    position:relative;
+    margin-top:100px;
+    /*margin-bottom:0px;*/
+    /*padding-bottom: 0px;*/
+    /*min-width:100%;*/
+    /*margin-right:80px;*/
+    /*width:800px;*/
+}
 
+.team
+{
+    background-color:purple;
+    border: 1px dotted purple;
+    cursor:pointer;
+    position:realtive;
+    color: #333;
+    /*width:300px;*/
+}
 
 .heroes > li > span{
 cursor:pointer;
 position:realtive;
 left:0;
-width: 100%;
 color:white;
-text-align:center;
-background-color:black;
+/*background-color:black;*/
 margin:2em;
-width: 30em;
-padding:.9em;
-height:3.0em;
-border-radius:4px;
+/*margin-right:50px;*/
+padding:20px 30px;
+width:6000px;
+border-radius:100px 200px 100px 220px;
 }
-
-
-
-.ab
+.memdesign
 {
-     position:relative;
-    margin-top:40px;
-padding:20px;
-background-color:black;
-max-height:550px;
-overflow:scroll;
-width: 100%;
+    position:relative;
+    left:0;
+}
+.member-part-display
+{
+    cursor:pointer;
+    position:relative;
+    margin-top:0px;
+    background-color:black;
+    margin-left:5px;
+    max-height:550px;
+    overflow:scroll;
+    overflow-x:hidden;
 } 
 .sidenav{
-    max-height:550px;
-overflow:scroll;
+    max-height:500px;
+    max-width: 100%;
+    overflow:scroll;
      position:relative;
-    margin-top:40px;
+    margin-top:12px;
+    margin-left:0%;
+    
 }
+
 li a
 {
 display:block;
 color:white;
-text-align:center;
-padding:14px 16px;
+text-align:left;
+padding:20px 16px;
 text-decoration:none;
 
 }
 
 li a:hover:not(.active){
-   background-color:grey; 
+   margin-right: 30px;
+   border-radius: 20px;
+   /*display: inline-block;*/
+   /*vertical-align: middle;*/
+   /*transform: translateZ(0);*/
+   /*backface-visibility: hidden;*/
+   /*-moz-osx-font-smoothing: grayscale;
+   transition-duration: 0.3s;
+   transition-property: transform;*/
 }
-
-
 
 .TEAM_COMPONENT
 {
@@ -104,18 +132,29 @@ height: 100%;
 
 
 }
-/*.aaa {*/
-    /*display: -webkit-box;*/
-    /*display: -ms-flexbox;*/
-    /*display: flex;*/
-    /*-webkit-box-orient: vertical;*/
-    /*-webkit-box-direction: normal;*/
-    /*-ms-flex-flow: column nowrap;*/
-    /*flex-flow: column nowrap;*/
-    /*min-height: 100vh;*/
-/*}*/
 
 
+.var-css-member{
+    padding-left: 10%;
+}
+
+.const-css-member{
+    margin-left: 15%;
+}
+
+.const-css-member-tid{
+    margin-left: 12%;
+}
+
+.const-css-member-mid{
+    margin-left: 8%;
+    margin-top: 100px;
+}
+
+.mem-pencil-pos{
+    margin-left: 40%;
+    /*padding-right: */
+}
 
 .aa {
     /*display: none;*/
@@ -127,4 +166,28 @@ height: 100%;
     background: black;
     bottom: 0;
     text-align: center;
+}
+.mem-without-hover{
+     border-style: solid;
+    border-color:white;
+     /*border-radius: 20px;*/
+     position:relative;
+    top:0px;
+background: linear-gradient(to bottom right, gray, black);
+/*max-height:80%;*/
+}
+
+.bottombar
+{
+width:35%;
+    bottom: 20px;
+    position: fixed;
+    margin-left:0px;
+    /*padding:0px;*/
+    /*top:0px;*/
+/*margin-right:600px;*/
+
+}
+.button:focus {
+    font-size:20px;
 }

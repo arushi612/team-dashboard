@@ -1,24 +1,27 @@
-.ab
-{
+.ab{
     position:relative;
     margin-top:40px;
-padding:20px;
-background-color:black;
-height:3000px;
- max-height:600px;
+    padding:30px;
+    background: linear-gradient(to top left, gray, black) ;
+    height:3000px;
+    max-height:600px;
+    /*padding:0px;*/
 } 
 
-li a
-{
-
-display:block;
-color:blue;
-text-align:center;
-padding:14px 16px;
-text-decoration:none;
-
+li a{
+    display:block;
+    color:black;
+    text-align:center;
+    padding:14px 16px;
+    text-decoration:none;
 }
 
 li a:hover:not(.active){
    background-color:grey; 
+}
+.mainclass{
+    position:absolute;
+    margin-left:25%;
+    padding:0px;
+
 }

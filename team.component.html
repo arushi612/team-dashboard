@@ -1,50 +1,103 @@
 
 <nav class="navbar navbar-inverse navbar-fixed-bottom">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">yo</a>
-        </div>
-       
-        <button  class="btn btn-danger navbar-btn" (click)="delmul()">-</button>
-          <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">+</button>
 
+   <ul class="navbar-form navbar-right">
+     <div *ngIf="showAddMember">
+    <button type="button" class="btn btn-info btn-sm" style="background:none" data-toggle="modal" data-target="#addmemModal">+</button>
+    </div>
   <!-- Modal -->
- 
+ </ul>
         
-        </div>
-    </nav>
+  </div>
+</nav>
    
       
-       <div class="container-fluid">
-  <div class="row content">
-    <div class="col-sm-4 col-md-6 sidenav text-center">
-     
-          <h1>Team details</h1>
-  <ul class="heroes">
-  <li  type=none *ngFor="let ar of maindata, index as idd" (click)="onselect(idd)" >
-    <input type=checkbox (click)="oncheck(idd)">
-    <span class="text-center">{{ar.Tname}}</span>
-  </li>
-  </ul>
+<div class="container-fluid">
+  <div class="row content" style="margin-left:0px;padding:0px;position:relative;">
+    <div class="col-sm-3 col-md-6 sidenav text-center">
+  <nav class="navbar navbar-inverse navbar-fixed-top" style="position:fixed;top:50px;width:37.8%;margin-left:24.4%" >
+        <div class="container-fluid">
+          <div class="navbar-header">
+              <a class="navbar-brand " href="#"><span class="text-center">TeamDetails</span></a>
+           </div>
+              <ul class="navbar-form navbar-right"> 
+                <button type="button"style="font-size:12px;float:right" class="	glyphicon glyphicon-refresh" (click)="refresh()"></button>
 
+</ul>
+         </div>
+       </nav>
+
+
+  <div style="position:relative;margin-top:100px">
  
- </div>
+ 
+        <table class="w3-table w3-striped w3-border"  >
+          <tr   class="w3-table w3-striped w3-border">
+            <th>
+              
+<button style="font-size:14px;" type="button" class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#addModal"></button>
+            </th>
+            <th style="float:right">
+<button type="button" (click)="showedit()" class="glyphicon glyphicon-pencil" ></button>
+</th>
+          </tr>
+          <tr   class="w3-table w3-striped w3-border ">
+            <li type=none *ngFor="let ar of maindata, index as idd" (click)="onselect(idd)" >
+             <td *ngIf="editSelected" >
+         <button (click)="edit(idd)" type="button" class="glyphicon glyphicon-pencil" style="font-size:12px; margin-top:0px;border:none; background:none; float:right;color:black;" data-toggle="modal" data-target="#EditModal"></button>
+            </td>
+          
+            <td class="w3-hover-black">{{ar.Tname}}</td>
+            <td >
+                <button type="button" (click)="oncheck(idd)" class="glyphicon glyphicon-remove button"style="position:reletive;border:none;background:none;float:right" ></button>
+             
+              </td>
+          <td  *ngIf="mailSelected">
+              <button  type="button" class="glyphicon glyphicon-envelope" style="font-size:12px; margin-top:0px;border:none; background:none; float:right; color:black;" data-toggle="modal" data-target="#editmail"></button>
+            </td>   
+            </li>  
+          </tr>
+                <tr  >
+           
+          </tr>
 
-<div class="col-sm-4 col-md-6">
-
-<hero-detail  [gtdata]="MemberData" ></hero-detail>
-
+          </table>
+          
 </div>
 
-</div>
-</div>
-
-
-
- <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
+<nav class="navbar navbar-inverse bottombar" style="margin-left:-2.3%; width: 39.5%;" >
+  <div class="container-fluid">
     
-      <!-- Modal content-->
+  <ul class="navbar-form navbar-left">
+    
+           <button type="button" (click)="send()" class="glyphicon glyphicon-envelope"  data-toggle="modal" data-target="#sendmail" ></button>
+   </ul>
+     <ul class="navbar-form navbar-right">
+   <button  style="font-size:14px;" class="glyphicon glyphicon-trash" (click)="delmul()"></button> 
+   </ul>
+  </div>
+</nav>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="col-sm-4 col-md-6 " style="margin-left:0px; position:relative; padding-left:0px;">
+
+<hero-detail   [gtdata]="MemberData" [tdata]="maindata"[oldTid]="oldtid" [rcv]="received" [indx]="indx" ></hero-detail>
+
+</div>
+
+</div>
+</div>
+<div class="modal fade" id="addModal" role="dialog">
+    <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -52,25 +105,16 @@
         </div>
         <div class="modal-body">
     
-          <h1>Enter new team</h1> 
+         
 <ul>
 <li type=none><input #tid placeholder="team id">
   <li type=none><input #tna placeholder="team name">
   <li type=none><input #na placeholder="name">
  <li type=none class="glyphicon glyphicon-user"><input #em  placeholder="Email">
  </ul>
- <button (click)="onadd(tid.value,tna.value,na.value,em.value);tid.value='';tna.value='';na.value='';em.value=''">Add new Team</button> 
+ <button (click)="onaddTeam(tid.value,tna.value,na.value,em.value);tid.value='';tna.value='';na.value='';em.value=''">Add new Team</button> 
  <br>
- <h1>Enter new members</h1>
- <ul>
-   <li type=none><input #mtid placeholder="team id"></li>
-  <li type=none><input #mtna placeholder="team name">
-  <li type=none><input #mna placeholder="member name">
- <li type=none><input #mem placeholder="member email">
- <li type=none class="glyphicon glyphicon-user"><input #min placeholder="enter member id"> 
-   </ul>
-<button type="button"class="btn btn-default active"(click)="onaddmem(mtid.value,mtna.value,mna.value,mem.value,min.value);mtid.value='';mtna.value='';mem.value='';min.value=''">Add new members</button>
- <br>
+ 
 
         </div>
         <div class="modal-footer">
@@ -80,3 +124,140 @@
       
     </div>
   </div>
+  
+ <div class="modal fade" id="EditModal" role="dialog">
+    <div class="modal-dialog">
+    
+      
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+    
+ 
+ <ul *ngIf="tmpData" >
+   
+
+    <!--<li type=none><label>Team Id:</label><input #mtid [(ngModel)]="tmpData.Tid"><li>-->
+    <li  type=none><label>Team Name:</label><input #mtna [(ngModel)]="tmpData.Tname"></li>
+    <li  type=none><label>Team Email:</label><input #mem [(ngModel)]="tmpData.email"></li>
+
+
+  <button (click)="updateTeam(mtid.value , mtna.value, mem.value)">Update</button>
+ </ul>
+
+        </div>
+     
+     
+     
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+
+
+  <div id="addmemModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+        <h1>Enter new members</h1>
+ <ul>
+   <li type=none><input #mtid placeholder="team id"></li>
+  <li type=none><input #mtna placeholder="team name">
+  <li type=none><input #mna placeholder="member name">
+ <li type=none><input #mem placeholder="member email">
+ <li type=none class="glyphicon glyphicon-user"><input #min placeholder="enter member id"> 
+   </ul>
+<button type="button"class="btn btn-default active"(click)="onaddmem(mtid.value,mtna.value,mna.value,mem.value,min.value);mtid.value='';mtna.value='';mem.value='';min.value=''">Add new members</button>
+ <br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+<div id="editmail" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" style="min-height:120px;" >
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top modal-title"style="min-height:20px" >
+  <div class="container-fluid">
+<div class="navbar-header">
+      <a class="navbar-brand" href="#">NewMessage</a>
+    </div>
+  
+
+ <ul class="nav navbar-nav navbar-right">
+    <li class="	glyphicon glyphicon-minus" style="position:relative;top:20px"><a href="#"></a></li>
+        <li ><button type="button"class="glyphicon glyphicon-remove"style="position:relative;top:0px" data-dismiss="modal"><a href="#"></a></button>
+ </ul>
+        
+  </div>
+</nav>
+<input #eid type="text"style="position:relative;top:25px;border:none" class="form-control" placeholder="Recipients"><hr>
+<input type="text"style="position:relative;top:0px;border:none" class="form-control" placeholder="Subject">
+  
+      </div>
+      <div class="modal-body" style="min-height:420px">
+       
+<div >
+  <textarea style="position:relative;min-height:350px;border:none"class="form-control"   rows="14" id="comment"placeholder="Body"></textarea>
+
+</div>
+
+
+      </div>
+      <div class="modal-footer">
+  
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" (click)="mail(eid.value)" >SEND</button>
+      </div>
+   
+ <ul class="nav navbar-nav">
+   <li class="glyphicon glyphicon-paperclip"  style="position:relative;top:5px"><a href="#"></a></li>
+   <li class="	glyphicon glyphicon-camera" style="position:relative;top:5px"><a href="#"></a></li>
+      <li  class="material-icons"  style="position:relative;top:5px"><a href="#"></a></li>
+   </ul>
+      <ul class="nav navbar-nav navbar-right">
+   <li class="glyphicon glyphicon-trash" style="position:relative;top:5px;margin-right:10px"><a href="#"></a></li>
+   </ul>
+  </div>
+</nav>
+
+       
+     
+      </div>
+    </div>
+
+  </div>
+</div>
+
+

@@ -1,47 +1,49 @@
 
 <div style="max-height:100%; overflow-y: hidden;">
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">ADMIN</a>
-    </div>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">ADMIN</a>
+      </div>
  
-    <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown" href="#" >USER
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="glyphicon glyphicon-user" href="#">Profile</a></li>
+            <li><a class="glyphicon glyphicon-envelope" href="#">Inbox</a></li>
+            <li><a class="glyphicon glyphicon-cog" href="#">Settings</a></li>
+            <li><a class="glyphicon glyphicon-off" href="#">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
       
-     
-     
-       <li class="dropdown">
-        <a class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown" href="#" >USER
-          <span class="caret"></span></a>
-      <ul class="dropdown-menu">
-      <li><a class="glyphicon glyphicon-user" href="#">Profile</a></li>
-      <li><a class="glyphicon glyphicon-envelope" href="#">Inbox</a></li>
-      <li><a class="glyphicon glyphicon-cog" href="#">Settings</a></li>
-      <li><a class="glyphicon glyphicon-off" href="#">Logout</a></li>
-    </ul>
-    </li>
-    </ul>
-    <ul class="navbar-form navbar-right">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="search">
-      <div class="input-group-btn">
-      <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
-      </div>
-      </div>
+      <ul class="navbar-form navbar-right">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="search">
+            <div class="input-group-btn">
+              <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+        </div>
       </ul>
   </div>
-   </nav>
-<div class="row">
+  </nav>
+  
+  <div class="row">
     <div class="col-sm-3 ab">
-  <li type=none><a routerLink="/main" class="glyphicon glyphicon-dashboard "href="#">Dashboard</a>
-  <li type=none><a href="#">Charts</a>
-  <li type=none><a href="#">Tables</a>
+      <!--<div ng-init="myVar = 'pic.jpg'">-->
+       <p class="w3-center"><img ng-src="pic.jpg" class="w3-circle" style="height:50px;width:50px;position:relative;margin-top:20px" alt="Avatar"/></p>
+       <!--</div>-->
+      <p style="margin-left:20px;color:white;text-align:center">Welcome ABC,</p>
+      <li type=none><a routerLink="/main" class="glyphicon glyphicon-dashboard "href="#">Dashboard</a>
+      <li type=none><a href="#" class="	fa fa-bar-chart">Charts</a>
+      <li type=none><a href="#">Tables</a>
     </div>
-        <div class="col-sm-9">
-            <!--<img src="img.jpg" class="img-thumbnail" width="304" height="246">-->
-        <router-outlet></router-outlet>
-
-        
-        </div>
-        </div>
+    
+    <div class="col-sm-9  "style="padding:0px" >
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
